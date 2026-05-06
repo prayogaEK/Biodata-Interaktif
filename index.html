@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biodata Kece </title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+  * {
+      /*Letak semua*/
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+      /*bagraun belakang*/
+      background: linear-gradient(135deg, #0f0c29, #1b0f3b, #24243e);
+      color: white;
+      overflow-x: hidden;
+  } 
+
+  /* ===== LAYER BLUR ===== */
+  .blur-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.2); /* bikin lebih deep */
+    z-index: 1;
+  }
+  /* bintik halus */
+  body::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.05;
+  }
+
+  body::before {
+      content: "";
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: 30%;
+      left: 60px;
+
+      transform: translateY(-50%);
+
+      background: radial-gradient(
+          circle,
+          rgb(201, 27, 172) 0%,     /* inti terang */
+          rgba(158, 26, 103, 0.8) 20%,
+          rgba(121, 24, 104, 0.4) 45%,
+          transparent 75%
+      );
+
+      filter: blur(90px);
+      opacity: 1;
+      pointer-events: none;
+  }
+
+
+
+  body::after {
+      content: "";
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: 60px;
+      right: 60px;
+
+      background: radial-gradient(
+          circle,
+          hsl(182, 70%, 31%) 0%,     
+          rgba(23, 103, 117, 0.8) 20%,
+          rgba(14, 194, 170, 0.4) 45%,
+          transparent 75%
+      );
+
+      filter: blur(90px);
+      opacity: 0.7;
+
+      mix-blend-mode: screen; /* biar nyatu & gak ganggu */
+      pointer-events: none;
+      z-index: -1;
+  }
+
+  body::after {
+      content: "";
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: 60px;
+      right: 60px;
+
+      background: radial-gradient(
+          circle,
+          hsl(182, 70%, 31%) 0%,     
+          rgba(23, 103, 117, 0.8) 20%,
+          rgba(14, 194, 170, 0.4) 45%,
+          transparent 75%
+      );
+
+      filter: blur(90px);
+      opacity: 0.7;
+
+      mix-blend-mode: screen; /* biar nyatu & gak ganggu */
+      pointer-events: none;
+      z-index: -1;
+  }
+
+
+
+    /* Welcome screen sementara */
+      #welcomeScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(135deg, #0f0c29, #1b0f3b, #24243e);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 9999;
+        animation: zoomFadeOut 1.2s ease 4s forwards;
+      }
+      @keyframes zoomFadeOut {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+    50% {
+      transform: scale(1.2);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1.6);
+      filter: blur(10px);
+      visibility: hidden;
+    }
+  }
+      
+
+
+      @keyframes zoomText {
+    0% {
+      opacity: 0;
+      transform: scale(0.7) translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+      
+    #welcomeScreen h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 0px; /* kecilin jarak bawah */
+
+    opacity: 0;
+    animation: slideLeft 1s ease 0.8s forwards;
+
+  }
+
+
+  @keyframes slideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+      
+
+  #welcomeScreen p {
+    font-size: 20px;
+    opacity: 0.9;
+    opacity: 0;
+    animation: zoomText 1s ease 1.3s forwards;
+    margin: 7px 0; /* atas bawah jadi rapat */
+  }
+
+
+  #welcomeScreen .icons {
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: zoomText 1s ease 0.3s forwards;
+  }
+
+  #welcomeScreen .icons i {
+      font-size:18px;
+      margin:0 10px;
+      padding:15px;
+      border-radius:50%;
+      background: radial-gradient(circle at top, #113175, #07373a);
+      box-shadow: 0 0 15px #4168bb;
+      transition:0.3s;
+
+  }
+
+  #welcomeScreen .icons i:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 25px #000000;
+  }
+
+
+
+  #welcomeScreen .username {
+    margin-top: 8px; /* biar gak terlalu jauh */
+    padding: 8px 18px;
+    font-size: 15px;
+    color: #55f7f7;
+
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(85, 247, 247, 0.3);
+    box-shadow: 0 0 10px rgba(85, 247, 247, 0.3);
+
+    display: inline-block;
+
+    opacity: 0;
+    animation: slideRight 1s ease 1.5s forwards;
+  }
+  @keyframes slideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+
+
+  /* Navbar */
+  nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center; /* 🔥 INI KUNCINYA */
+      padding: 8px 60px;
+
+      background: rgba(0, 0, 0, 0.3); /* biar agak transparan */
+      backdrop-filter: blur(10px);   /* efek kaca */
+      
+      font-size: 12px;
+      z-index: 1000;
+  }
+
+  nav h1 {
+      color: #8400ff;
+  }
+
+  nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+  }
+
+  nav ul li {
+    
+      cursor: pointer;
+      transition: 0.3s;
+  }
+
+  nav ul li:hover {
+      text-decoration: none;
+      color: rgb(17, 52, 66);
+  }
+
+  nav ul li a{
+    text-decoration: none;
+    color: #fafafa;
+  }
+  /* Hero */
+  .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 60px;
+      margin-top: 100px; /* atur sesuai selera */
+
+  }
+
+
+  .text {
+      max-width: 500px;
+      
+  }
+
+
+  /* Badge */
+  .badge {
+      background: rgba(168, 85, 247, 0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 15px;
+
+      animation: masukKiri 0.8s ease 4s forwards;
+  }
+
+  .badge,
+  .hero h2,
+  .hero p,
+  .hero img,
+  .buttons  {
+    opacity: 0;
+  }
+
+  @keyframes masukKiri {
+    0% { opacity: 0; transform: translateX(-80px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes masukKanan {
+    0% { opacity: 0; transform: translateX(80px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  /* Title */
+  h2 {
+      font-size: 55px;
+      line-height: 1.2;
+      animation: masukKiri 0.8s ease 4.3s forwards;
+  }
+
+  h2 span {
+    font-size: 55px;
+    font-weight: bold;
+
+    background: linear-gradient(
+      90deg,
+      #55f7f7,
+      #4a49b4,
+      #55f7f7
+    );
+    background-size: 200%;
+
+    background-clip: text;        /* standard */
+    -webkit-background-clip: text; /* chrome & safari */
+
+    animation: warnaJalan 3s linear infinite;
+
+  }
+
+
+  @keyframes warnaJalan {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+
+
+  /* Text */
+  p {
+
+      margin: 15px 0;
+      color: #cbd5e1;
+
+      animation: masukKiri 0.8s ease 4.6s forwards;
+      
+  }
+
+
+
+  /* Tags */
+  .tags {
+      display: flex;
+      gap: 10px;
+      margin: 15px 0;
+      
+  }
+
+
+
+  .tag:hover {
+      background: #a855f7;
+  }
+
+  /* Buttons */
+  .buttons {
+      margin-top: 20px;
+    
+
+      animation: masukKiri 0.8s ease 4.9s forwards;
+  }
+
+  button {
+      padding: 12px 25px;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-right: 10px;
+      transition: 0.3s;
+
+      
+  }
+
+  /* Glow Button */
+  .btn-primary {
+      background: #2a959c;
+      color: white;
+      border: none;
+      box-shadow: 0 0 15px #227075;
+  }
+
+  .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px #12c4ca;
+  }
+
+  /* Outline Button */
+  .btn-secondary {
+      background: transparent;
+      border: 1px solid #2a959c  ;
+      color: #fafafa;     
+  }
+
+  .btn-secondary:hover {
+      background: #3d9b9e;
+      color: rgb(255, 255, 255);
+  }
+
+  /* Image animation */
+  .hero img {
+      width: 380px;
+      animation: float 3s ease-in-out infinite;
+      animation: 
+        masukKanan 1s ease 4.3s forwards,
+        float 3s ease-in-out infinite;
+      
+  }
+      @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0); }
+      }
+
+
+  /* halaman 2 */
+  /* ABOUT CONTAINER */
+  .about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+  }
+
+  .about-title,
+  .about-text,
+  .profile,
+  .card {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    
+  }
+
+  .show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .cards {
+    display: flex;
+    gap: 20px;
+    padding: 20px 60px;   /* dari 40px → 20px */
+    margin-top: -40px;    /* naik ke atas */
+  }
+
+  /* TEXT */
+  .about-text {
+    max-width: 500px;
+    margin-top: 100px;
+  }
+
+  .about-text h2 {
+    font-size: 20px;
+    color: #cbd5e1;
+  }
+
+  :root {
+    --nama-warna: linear-gradient(90deg, #55f7f7, #4a49b4, #55f7f7);
+  }
+
+  .nama {
+    font-size: 40px;
+    font-weight: bold;
+
+    background: var(--nama-warna); /* ✅ pakai variable langsung  Nama */
+
+    background-size: 200%;
+
+    background-clip: text;            /* standard */
+    -webkit-background-clip: text;    /* safari / chrome */
+
+    color: transparent;               /* standard */
+    -webkit-text-fill-color: transparent; /* safari fix */
+
+      animation: warnaJalan 3s linear infinite;
+    }
+  @keyframes warnaJalan {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+
+  .about-text p {
+    margin: 30px 0;
+  }
+
+  /* PROFILE IMAGE */
+  .profile {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 40px #55f7f7;
+
+    
+  }
+  .profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* CARDS */
+  .cards {
+    display: flex;
+    gap: 20px;
+    padding: 40px 60px;
+  }
+
+  .card {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+
+  .card h1 {
+    color: #55f7f7;
+  }
+
+
+  /* RESPONSIVE */
+  @media(max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .profile {
+      margin-top: 30px;
+    }
+
+    .cards {
+      flex-direction: column;
+    }
+  }
+  .about-title {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 60px;
+  }
+
+  .about-title h2 {
+      font-size: 35px;
+      color: #c084fc;
+      margin-bottom: 10px;
+  }
+
+  .about-title p {
+      opacity: 0.7;
+      font-size: 14px;
+  }
+
+  #prodi, #nim, #univ {
+    opacity: 0;
+    animation: masukKiri 1s ease forwards;
+  }
+
+
+
+
+  /* Animations */
+
+  /* Animationsgambar nya */
+  @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+  }
+
+
+
+  /* Responsive */
+  @media(max-width: 768px) {
+      .hero {
+          flex-direction: column;
+          text-align: center;
+      }
+
+      .hero img {
+          margin-top: 30px;
+      }
+  }
+
+  /* Halaman Login */
+  .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+  }
+
+  .popup-content {
+      background: #0f172a;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 320px;
+      border: 1px solid #1e3a5f;
+  }
+
+  .popup-content h2 {
+      color: #55f7f7;
+      margin-bottom: 12px;
+      font-size: 18px;
+  }
+
+  /* INPUT & SELECT */
+  .popup-content input,
+  .popup-content select {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #2a4a6b;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2355f7f7' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+  }
+
+  .popup-content input { background-image: none; }
+
+  .popup-content input:focus,
+  .popup-content select:focus { border-color: #55f7f7; }
+
+  .popup-content select option { background: #1e293b; color: #e2e8f0; }
+
+  .popup-content input[type="file"] {
+      background-image: none;
+      padding: 8px;
+      font-size: 13px;
+      color: #94a3b8;
+      border-style: dashed;
+  }
+
+  .btn-row { display: flex; gap: 10px; margin-top: 14px; }
+  .btn-row button { flex: 1; margin-right: 0; }
+
+  @media(max-width: 768px) {
+      .hero, .about-container { flex-direction: column; text-align: center; }
+      .hero img { margin-top: 30px; width: 220px; }
+      .profile  { margin-top: 30px; }
+      .cards    { flex-direction: column; }
+      nav       { padding: 8px 20px; }
+      .hero, .about-container, .cards, .about-title { padding-left: 20px; padding-right: 20px; }
+  }
+
+
+  /*edit deskripsi*/
+  .popup-content textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin: 6px 0;
+      border-radius: 8px;
+      border: 1px solid #2a4a6b;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      resize: none;
+  }
+  .info-tambahan p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #94a3b8;
+  }
+  .slide-box {
+    width: 400px;
+    position: relative;
+  }
+
+  .slide {
+    display: none;
+    animation: fadeSlide 0.4s ease;
+  }
+
+  .slide.active {
+    display: block;
+  }
+
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* DOT */
+  .dots {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 3px;
+    background: #555;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot.active {
+    background: #55f7f7;
+  }
+
+  /* TITLE */
+  .slide-title {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 10px;
+  }
+
+
+  /* LIGHT MODE=========================================== */
+  body.light-mode {
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #954bdf 60%,
+      #6295d8 100%
+    );
+    color: #1e293b;
+  }
+  body.light-mode nav {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  body.light-mode .card {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  body.light-mode .popup-content {
+    background: #ffffff;
+    color: #1e293b;
+  }
+
+  body.light-mode input,
+  body.light-mode select,
+  body.light-mode textarea {
+    background: #f1f5f9;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+  }
+
+  body.light-mode .btn-secondary {
+    border: 1px solid #1e293b;
+    color: #1e293b;
+  }
+
+  body.light-mode .btn-secondary:hover {
+    background: #e2e8f0;
+  }
+
+  body.light-mode p {
+    color: #475569;
+  }
+
+  /* TEXT========================= */
+  body.light-mode p {
+    color: #475569;
+  }
+
+  body.light-mode h1,
+  body.light-mode h2,
+  body.light-mode h3 {
+    color: #0f172a;
+  }
+
+  /* NAVBAR */
+  body.light-mode nav {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+  }
+
+  body.light-mode nav ul li a {
+    color: #1e293b;
+  }
+
+  body.light-mode nav ul li a:hover {
+    color: #6366f1;
+  }
+
+  /* CARD */
+  body.light-mode .card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+  }
+
+  /* INPUT & FORM */
+  body.light-mode input,
+  body.light-mode select,
+  body.light-mode textarea {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+  }
+
+  /* BUTTON */
+  body.light-mode .btn-primary {
+    background: linear-gradient(90deg, #2e2ee4, #196f94);
+    color: rgb(11, 7, 7);
+    box-shadow: 0 0 10px rgba(99,102,241,0.4);
+  }
+
+  body.light-mode .btn-secondary {
+    border: 1px solid #000000;
+    color: #000000;
+  }
+
+  body.light-mode .btn-secondary:hover {
+    background: #6366f1;
+    color: white;
+  }
+
+  /* POPUP */
+  body.light-mode .popup-content {
+    background: #ffffff;
+    color: #1e293b;
+    border: 1px solid #e2e8f0;
+  }
+
+  /* DOT SLIDE */
+  body.light-mode .dot {
+    background: #cbd5e1;
+  }
+
+  /* =================================== */
+  body.light-mode .dot.active {
+    background: #6366f1;
+  }
+
+  body.light-mode .profile {
+    box-shadow: 0 0 20px rgba(99,102,241,0.3);
+  }
+
+  body.light-mode .badge {
+    background: rgba(99,102,241,0.1);
+    color: #4f46e5;
+  }
+
+  /* Tombol prine  ======================== */
+  @media print {
+    body {
+          margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #f5a623 40%, #eaeaea 40%);
+    }
+
+    nav,
+    #welcomeScreen,
+    .popup {
+      display: none !important;
+    }
+
+    .cv {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  #deskripsiUser {
+  white-space: pre-line;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+#deskripsiUser {
+  word-break: break-word;
+}
+  /* ================== RESPONSIVE HP ================== */
+
+/* HERO */
+.hero {
+  gap: 40px;
+}
+
+.hero img {
+  max-width: 100%;
+}
+
+/* NAVBAR */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+}
+
+/* HERO MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .hero img {
+    width: 220px;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h2 span {
+    font-size: 32px;
+  }
+}
+
+/* ABOUT */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .about-text {
+    margin-top: 0;
+  }
+
+  .profile {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* CARDS */
+.cards {
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 200px;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+/* POPUP */
+.popup-content {
+  width: 90%;
+  max-width: 400px;
+}
+
+.slide-box {
+  width: 100%;
+}
+
+/* CV MODAL */
+#cvModal .popup-content {
+  width: 95% !important;
+  max-width: 900px;
+}
+
+/* FIX OVERFLOW */
+body {
+  overflow-x: hidden;
+}
+
+  </style>
+
+  </head>
+
+  <body>
+
+  <!-- LOGIN BOX -->
+  <div id="loginBox" class="popup">
+      <div class="popup-content">
+          <h2>Login Admin</h2>
+          <input type="text" id="username" placeholder="Username">
+          <input type="password" id="password" placeholder="Password">
+          <div class="btn-row">
+              <button class="btn-primary" onclick="cekLogin()">Login</button>
+              <button class="btn-secondary" onclick="tutupLogin()">Batal</button>
+              
+          </div>
+      </div>
+  </div>
+
+  <div id="cvModal" class="popup">
+  <div class="popup-content" style="width: 850px; max-height: 90vh; overflow:auto;">
+
+    <div style="text-align:right;">
+      <button class="btn-secondary" onclick="tutupCV()">Close ✖</button>
+    </div>
+
+    <div id="isiCV"></div>
+
+  </div>
+</div>
+
+  <!-- EDIT BOX -->
+  <div id="editBox" class="popup">
+    <div class="popup-content slide-box">
+
+      <h2>Edit Biodata</h2>
+
+      <!-- DOT -->
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- SLIDE 1 -->
+      <div class="slide active" id="slide1">
+        <p class="slide-title">Slide 1 dari 2</p>
+
+        <input type="text" id="editNama" placeholder="Nama Lengkap">
+        <textarea id="editDeskripsi" placeholder="Deskripsi diri..." rows="3"></textarea>
+        <input type="text" id="editNo" placeholder="Nomor HP">
+        <input type="text" id="editInstagram" placeholder="Instagram">
+        <input type="email" id="editEmail" placeholder="Email">
+
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="tutupEdit()">Batal</button>
+          <button class="btn-primary" onclick="nextSlide()">Lanjut ›</button>
+        </div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide" id="slide2">
+        <p class="slide-title">Slide 2 dari 2</p>
+
+        <select id="editFakultas" onchange="updateProdi()">
+          <option value="">-- Pilih Fakultas --</option>
+          <option>Fakultas Ilmu Komputer</option>
+          <option>Fakultas Teknik</option>
+        </select>
+
+        <select id="editProdi">
+          <option value="">-- Pilih Prodi --</option>
+        </select>
+
+        <input type="text" id="editNim" placeholder="NIM">
+        <input list="listUniv" id="editUniv" placeholder="Cari Universitas...">
+        <datalist id="listUniv"></datalist>
+
+        <input type="file" id="editFoto">
+        <select id="editCV">
+        <option value="">-- Pilih Template CV --</option>
+        <option value="cv2">CV (Modern)</option>
+      </select>
+
+        <div class="btn-row">
+          <button class="btn-secondary" onclick="prevSlide()">‹ Kembali</button>
+          <button class="btn-secondary" onclick="printData()">Print</button>
+          <button class="btn-primary" onclick="simpanData()">Simpan</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+      
+  <div id="welcomeScreen">
+      <div class="icons">
+          <i class="fas fa-code"></i>
+          <i class="fas fa-user"></i>
+          <i class="fas fa-ghost"></i>
+      </div>
+
+      <h1>WELCOME</h1>
+      <p class="highlight">Selamat datang di website kami</p>
+      <p class="username">@prayoga.ek</p>
+  </div>
+
+  <nav>
+      <h1>opik</h1>
+      <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#" onclick="bukaLogin()">Edit</a></li>
+          <li><a href="#" onclick="refreshAnimasi()">Refresh</a></li>
+          <li><a href="#" onclick="toggleTheme()">🌙 / ☀️</a></li>
+      </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    
+      <div class="text">
+          <div class="badge">🚀 Ready to Innovate</div>
+          <h2> Biodata Web  
+            <br><span>Developer</span></h2> 
+            <br><p>Information Systems Student</p></h2> 
+          <p >Menghidupkan Biodata Digital dengan Tampilan Interaktif, Modern, Seru, dan User-Friendly</p>
+
+      </div>
+
+      <img src="https://cdn-icons-png.flaticon.com/512/2721/2721297.png">
+
+
+  </section  >
+
+
+
+  <section class="biodata" id="about">
+
+  <!-- ABOUT TITLE -->
+  <div class="about-title">
+      <h2>About Me</h2>
+      <p>✨ing Personal Information Through a Digital Profile✨</p>
+  </div>
+
+    <div class="about-container">
+      
+
+      <div class="about-text">
+        <h2>Hello, I'm</h2>
+        <h1 class="nama" id="namaUser"></h1>
+        <p id="deskripsiUser">
+          Seorang mahasiswa yang tertarik di bidang Web Development.Fokus membuat tampilan website yang modern, interaktif, dan user-friendly.
+        </p>
+
+        <button class="btn-primary" onclick="tampilCV()">View CV</button>
+      </div>
+
+      <div class="profile">
+        <img src="c:\Users\usER\Downloads\WhatsApp Image 2026-05-06 at 08.52.45.jpeg">
+      </div>
+
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+          <div class="card">
+              <h1>Fakultas</h1>
+              <p id="fakultasCard">Ilmu Komputer</p>
+          </div>
+          <div class="card">
+              <h1>Prodi</h1>
+              <p id="prodi">Sistem Informasi</p>
+          </div>
+          <div class="card">
+              <h1>NIM</h1>
+              <p id="nim">2247101168</p>
+          </div>
+          <div class="card">
+              <h1>Universitas</h1>
+              <p id="univ">Undha AUB Surakarta</p>
+          </div>
+      </div>
+
+
+  </section>
+
+
+  </section>
+
+  </section>
+
+  </section>
+
+  <script>
+
+    function tampilCV() {
+  let data = JSON.parse(localStorage.getItem("cvData"));
+
+  if (!data) {
+    alert("CV belum dibuat! Klik edit dulu.");
+    return;
+  }
+
+  let isi = buatCV(data);
+
+  document.getElementById("isiCV").innerHTML = isi;
+  document.getElementById("cvModal").style.display = "flex";
+}
+
+function tutupCV() {
+  document.getElementById("cvModal").style.display = "none";
+}
+
+
+  window.addEventListener("DOMContentLoaded", () => {
+    loadUniversitas();
+  });async function loadUniversitas() {
+    const input = document.getElementById("editUniv");
+    const datalist = document.getElementById("listUniv");
+
+    try {
+      const res = await fetch("http://universities.hipolabs.com/search?country=Indonesia");
+      const data = await res.json();
+
+      datalist.innerHTML = "";
+
+      data.slice(0, 100).forEach(u => {
+        const opt = document.createElement("option");
+        opt.value = u.name;
+        datalist.appendChild(opt);
+      });
+
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  const dataFakultas = {
+    "Fakultas Ilmu Komputer": [
+      "Sistem Informasi", "Teknik Informatika", "RPL"
+    ],
+    "Fakultas Teknik": [
+      "Teknik Sipil", "Teknik Mesin"
+    ]
+  };
+
+  function updateProdi() {
+    const fak = document.getElementById("editFakultas").value;
+    const prodi = document.getElementById("editProdi");
+
+    prodi.innerHTML = '<option>Loading...</option>';
+
+    setTimeout(() => {
+      prodi.innerHTML = '<option value="">-- Pilih Prodi --</option>';
+
+      if (dataFakultas[fak]) {
+        dataFakultas[fak].forEach(p => {
+          const opt = document.createElement("option");
+          opt.value = p;
+          opt.textContent = p;
+          prodi.appendChild(opt);
+        });
+      }
+    }, 300);
+  }
+
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  window.onload = function () { window.scrollTo(0, 0); };
+
+  function bukaLogin() { document.getElementById("loginBox").style.display = "flex"; }
+  function tutupLogin() { document.getElementById("loginBox").style.display = "none"; }
+
+  function cekLogin() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      if (user === "admin" && pass === "123") {
+          alert("Login Berhasil!");
+          tutupLogin();
+          bukaEdit();
+      } else {
+          alert("Login Gagal! Username atau password salah.");
+      }
+  }
+
+  function bukaEdit()  { document.getElementById("editBox").style.display = "flex"; }
+  function tutupEdit() { document.getElementById("editBox").style.display = "none"; }
+
+
+
+  const elements = document.querySelectorAll('.about-title, .about-text, .profile, .card');
+
+
+  let nama = "Prayoga Eka Ramdhani";
+  document.getElementById("namaUser").textContent = nama;
+
+  document.getElementById("prodi").textContent = "Sistem Informasi";
+  document.getElementById("nim").textContent = "2247101170";
+  document.getElementById("univ").textContent = "Undha AUB";
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  elements.forEach(el => observer.observe(el));
+
+
+  /*scorll*/
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.onload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  /* Halaman Login */
+  function bukaLogin() {
+    document.getElementById("loginBox").style.display = "flex";
+  }
+
+  function tutupLogin() {
+    document.getElementById("loginBox").style.display = "none";
+  }
+
+  function cekLogin() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    // USERNAME & PASSWORD (bisa kamu ubah)
+    if (user === "admin" && pass === "123") {
+      alert("Login Berhasil!");
+      tutupLogin();
+      bukaEdit();
+    } else {
+      alert("Login Gagal!");
+    }
+  }
+
+  function bukaEdit() {
+    document.getElementById("editBox").style.display = "flex";
+    document.getElementById("editDeskripsi").value = "";
+  }
+
+  function tutupEdit() {
+    document.getElementById("editBox").style.display = "none";
+  }
+
+      //Validasi 
+  document.getElementById("editNama").addEventListener("input", function () {
+      this.value = this.value.replace(/[^A-Za-z\s]/g, "");
+      this.value = this.value
+          .replace(/[^A-Za-z\s]/g, "")
+          .slice(0, 40);
+  });
+  document.getElementById("editNo").addEventListener("input", function () {
+      this.value = this.value.replace(/[^0-9]/g, "");
+      this.value = this.value
+          .replace(/[^0-9]/g, "")
+          .slice(0, 20);
+  });
+  document.getElementById("editNim").addEventListener("input", function () {
+      this.value = this.value.replace(/[^0-9]/g, "");
+      this.value = this.value
+          .replace(/[^0-9]/g, "")
+          .slice(0, 20);
+  });
+
+
+
+  function simpanData() {
+      let nama = document.getElementById("editNama").value.trim();
+      let prodi = document.getElementById("editProdi").value;
+      let nim = document.getElementById("editNim").value.trim();
+      let univ = document.getElementById("editUniv").value;
+      let file = document.getElementById("editFoto").files[0];
+      let deskripsi = document.getElementById("editDeskripsi").value;
+      let no = document.getElementById("editNo").value;
+      let dataCV = ambilDataCV();
+      localStorage.setItem("cvData", JSON.stringify(dataCV));
+
+      // DEBUG (cek di console)
+      console.log("Nama:", nama);
+
+      // wajib isi
+      if (nama === "") {
+          alert("Nama tidak boleh kosong!");
+          return;
+      }
+
+      // hanya huruf & spasi
+      if (!/^[A-Za-z\s]+$/.test(nama)) {
+          alert("Nama hanya boleh huruf!");
+          return;
+      }
+
+      // VALIDASI NOMOR HP
+      if (no && !/^[0-9]+$/.test(no)) {
+          alert("Nomor HP harus angka saja!");
+          return;
+      }
+
+      // VALIDASI NIM (huruf + angka)
+      if (nim && !/^[0-9]+$/.test(nim)) {
+          alert("NIM hanya boleh angka!");
+          return;
+      }
+
+      // update deskripsi
+      if (deskripsi) {
+          document.getElementById("deskripsiUser").textContent = deskripsi;
+      }
+
+      // update foto
+      if (file) {
+          let reader = new FileReader();
+          reader.onload = function(e) {
+              document.querySelector(".profile img").src = e.target.result;
+          }
+          reader.readAsDataURL(file);
+      }
+
+      if (nama) document.getElementById("namaUser").textContent = nama;
+      if (prodi) document.getElementById("prodi").textContent = prodi;
+      if (nim) document.getElementById("nim").textContent = nim;
+      if (univ) document.getElementById("univ").textContent = univ;
+
+      alert("Data berhasil diupdate!");
+      tutupEdit();
+
+      // RESET FORM EDIT
+      document.getElementById("username").value = "";
+      document.getElementById("password").value = "";
+
+      document.getElementById("editNama").value = "";
+      document.getElementById("editDeskripsi").value = "";
+      document.getElementById("editNo").value = "";
+      document.getElementById("editInstagram").value = "";
+      document.getElementById("editEmail").value = "";
+
+      document.getElementById("editFakultas").value = "";
+      document.getElementById("editProdi").innerHTML = '<option value="">-- Pilih Prodi --</option>';
+      document.getElementById("editNim").value = "";
+      document.getElementById("editUniv").value = "";
+      document.getElementById("editFoto").value = "";
+      document.getElementById("editCV").value = "";
+
+
+      let welcome = document.getElementById("welcomeScreen");
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // tampilkan ulang welcome
+      welcome.style.display = "flex";
+      welcome.style.visibility = "visible";
+      welcome.style.opacity = "1";
+      welcome.style.animation = "none";
+      void welcome.offsetWidth;
+      welcome.style.animation = "zoomFadeOut 1.2s ease 3s forwards";
+
+      // restart animasi isi welcome
+      const welcomeTexts = welcome.querySelectorAll('h1, p, .icons, .username');
+      welcomeTexts.forEach(el => {
+          el.style.animation = 'none';
+          void el.offsetWidth;
+          el.style.animation = '';
+      });
+
+      // reset animasi halaman 2
+      elements.forEach(el => {
+          el.classList.remove('show');
+          void el.offsetWidth;
+          observer.observe(el);
+      });
+  }
+
+  // Restart animasi teks di dalam welcome screen
+      const welcomeTexts = welcome.querySelectorAll('h1, p, .icons, .username');
+      welcomeTexts.forEach(el => {
+          el.style.animation = 'none';
+          void el.offsetWidth; // trigger reflow
+          el.style.animation = ''; // mengembalikan ke animasi asli di CSS
+      });
+
+      // function lain di atas...
+
+  function refreshAnimasi() {
+      const welcome = document.getElementById("welcomeScreen");
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      welcome.style.display = "flex";
+      welcome.style.visibility = "visible";
+      welcome.style.opacity = "1";
+      welcome.style.animation = "none";
+      void welcome.offsetWidth;
+      welcome.style.animation = "zoomFadeOut 1.2s ease 3s forwards";
+
+      const welcomeTexts = welcome.querySelectorAll('h1, p, .icons, .username');
+      welcomeTexts.forEach(el => {
+          el.style.animation = 'none';
+          void el.offsetWidth;
+          el.style.animation = '';
+      });
+
+      elements.forEach(el => {
+          el.classList.remove('show');
+          void el.offsetWidth;
+          observer.observe(el);
+      });
+  } 
+  let currentSlide = 1;
+
+  function showSlide(n) {
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    slides.forEach(s => s.classList.remove("active"));
+    dots.forEach(d => d.classList.remove("active"));
+
+    document.getElementById("slide" + n).classList.add("active");
+    dots[n - 1].classList.add("active");
+
+    currentSlide = n;
+  }
+
+  function nextSlide() {
+    // sembunyikan semua slide
+    document.getElementById("slide1").classList.remove("active");
+    document.getElementById("slide2").classList.remove("active");
+
+    // tampilkan slide 2
+    document.getElementById("slide2").classList.add("active");
+
+    // update dot indikator
+    document.querySelectorAll(".dot")[0].classList.remove("active");
+    document.querySelectorAll(".dot")[1].classList.add("active");
+  }
+
+  function prevSlide() {
+    // tampilkan slide 1
+    document.getElementById("slide1").classList.add("active");
+
+    // sembunyikan slide 2
+    document.getElementById("slide2").classList.remove("active");
+
+    // update dot indikator
+    document.querySelectorAll(".dot")[0].classList.add("active");
+    document.querySelectorAll(".dot")[1].classList.remove("active");
+  }
+
+
+  /*light mode*/
+
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+
+    // optional: simpan ke localStorage
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+  }
+
+  // load theme saat buka ulang
+  window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+    }
+  });
+
+  function ambilDataCV() {
+    let file = document.getElementById("editFoto").files[0];
+    let fotoURL = "";
+
+    if(file) {
+      fotoURL = URL.createObjectURL(file);
+    }
+
+    return {
+      nama: document.getElementById("editNama").value,
+      deskripsi: document.getElementById("editDeskripsi").value,
+      no: document.getElementById("editNo").value,
+      email: document.getElementById("editEmail").value,
+      ig: document.getElementById("editInstagram").value,
+      fakultas: document.getElementById("editFakultas").value,
+      prodi: document.getElementById("editProdi").value,
+      nim: document.getElementById("editNim").value,
+      univ: document.getElementById("editUniv").value,
+      template: document.getElementById("editCV").value,
+      foto: fotoURL
+    };
+  }
+
+  function buatCV(data) {
+
+
+
+    // TEMPLATE 2 (MODERN - PUNYAMU)
+ if(data.template === "cv2") {
+  return `
+  <style>
+  .cv-container {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: linear-gradient(135deg, #f5a623 40%, #eaeaea 40%);
+  }
+      .cv-container .cv-section p {
+    font-size: 12px;
+    line-height: 1.6;
+
+    white-space: pre-line;   /* ⬅️ biar enter kebaca */
+    word-wrap: break-word;   /* ⬅️ biar gak keluar kanan */
+    overflow-wrap: break-word;
+}
+    .cv-container .cv-section {
+    max-width: 100%;
+}
+
+  .cv-container * {
+    color: #000 !important;
+}
+    .cv-container,
+.cv-container * {
+    text-align: left !important;
+}
+    .cv-right {
+    text-align: left;
+}
+
+.cv-section,
+.cv-item,
+.cv-title,
+.cv-name {
+    text-align: left;
+}
+
+  .cv-container .cv-wrapper {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+  }
+
+  .cv-container .cv-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #f5a623;
+      top: 20px;
+      left: 20px;
+      z-index: 0;
+  }
+
+  .cv-container .cv-box {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      background: white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  }
+
+  .cv-container .cv-left {
+      width: 35%;
+      background: #222;
+      color: white;
+      padding: 20px;
+  }
+
+  .cv-container .cv-left img {
+      width: 100%;
+      border-radius: 8px;
+  }
+
+  .cv-container .cv-section {
+      margin-top: 20px;
+  }
+
+  .cv-container .cv-section h3 {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+  }
+
+  .cv-container .cv-section p {
+      font-size: 12px;
+      line-height: 1.6;
+  }
+
+  .cv-container .cv-right {
+      width: 65%;
+      padding: 20px;
+  }
+
+  .cv-container .cv-name {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 15px;
+  }
+
+  .cv-container .cv-title {
+      margin-top: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+  }
+
+  .cv-container .cv-item {
+      font-size: 13px;
+      margin-bottom: 6px;
+  }
+
+  .cv-container .cv-skill {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+  }
+
+  .cv-container .cv-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #f5a623;
+      margin-right: 3px;
+  }
+
+  .cv-container .cv-dot.gray {
+      background: #ccc;
+  }
+  </style>
+
+  <div class="cv-container">
+    <div class="cv-wrapper">
+
+      <div class="cv-bg"></div>
+
+      <div class="cv-box">
+
+        <!-- LEFT -->
+        <div class="cv-left">
+
+          <img src="${data.foto || 'https://via.placeholder.com/300x200'}">
+
+          <div class="cv-section">
+            <h3>CONTACT</h3>
+            <p>📞 ${data.no || '-'}</p>
+            <p>✉️ ${data.email || '-'}</p>
+            <p>📷 ${data.ig || '-'}</p>
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="cv-right">
+
+          <div class="cv-name">${data.nama || 'Nama Anda'}</div>
+
+          <div class="cv-section">
+            <h3>ABOUT ME</h3>
+            <p>${data.deskripsi || '-'}</p>
+          </div>
+
+          <div class="cv-title">EDUCATION</div>
+          <div class="cv-item">${data.univ || '-'}</div>
+          <div class="cv-item">${data.prodi || '-'}</div>
+
+          <div class="cv-title">DATA DIRI</div>
+          <div class="cv-item">Fakultas: ${data.fakultas || '-'}</div>
+          <div class="cv-item">NIM: ${data.nim || '-'}</div>
+
+          <div class="cv-title">SKILLS</div>
+
+          <div class="cv-skill">Komunikasi
+            <div style="margin-left:10px;">
+              <span class="cv-dot"></span>
+              <span class="cv-dot"></span>
+              <span class="cv-dot"></span>
+              <span class="cv-dot"></span>
+              <span class="cv-dot gray"></span>
+            </div>
+          </div>
+
+          <div class="cv-skill">Manajemen
+            <div style="margin-left:10px;">
+              <span class="cv-dot"></span>
+              <span class="cv-dot"></span>
+              <span class="cv-dot gray"></span>
+              <span class="cv-dot gray"></span>
+              <span class="cv-dot gray"></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  `;
+}
+    return "<h2>Pilih template dulu!</h2>";
+  }
+
+  function printData() {
+    let data = ambilDataCV();
+
+    if(!data.template) {
+      alert("Pilih template CV dulu!");
+      return;
+    }
+
+    if(!data.nama) {
+      alert("Isi nama dulu!");
+      return;
+    }
+
+    // simpan sementara
+    localStorage.setItem("cvData", JSON.stringify(data));
+
+    let isi = buatCV(data);
+
+    let win = window.open("", "", "width=1000,height=700");
+
+    win.document.write(`
+      <html>
+      <head><title>CV</title></head>
+      <body onload="window.print()">
+        ${isi}
+      </body>
+      </html>
+    `);
+
+    win.document.close();
+  }
+
+
+  </script>
+
+  </body>
+  </html>
+
+
+
+  </body>
+  </html>
